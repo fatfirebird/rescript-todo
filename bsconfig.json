@@ -1,0 +1,30 @@
+{
+  "name": "test-presentation-app",
+  "reason": { "react-jsx": 3 },
+  "bsc-flags": ["-bs-super-errors"],
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": [{ "dir": "__tests__", "type": "dev" }]
+    }
+  ],
+  "package-specs": [{ "module": "es6", "in-source": true }],
+  "suffix": ".bs.js",
+  "namespace": true,
+  "bs-dependencies": ["@rescript/react", "bs-css", "bs-css-emotion", "bs-webapi"],
+  "bs-dev-dependencies": [],
+  "gentypeconfig": {
+    "language": "typescript",
+    "shims": {
+      "Js": "Js",
+      "React": "ReactShim",
+      "ReactEvent": "ReactEvent",
+      "ReasonReact": "ReactShim"
+    },
+    "debug": {
+      "all": false,
+      "basic": false
+    }
+  },
+  "refmt": 3
+}
