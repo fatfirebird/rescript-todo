@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build",
+    "build": "rescript",
     "test": "web-test-runner \"src/**/__tests__/*.bs.js\"",
     "clean": "rescript clean"
   },

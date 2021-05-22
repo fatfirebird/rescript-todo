@@ -1,13 +1,16 @@
-open Todo
+open Todo.Item
 
 @send external filter: (array<'a>, 'a => bool) => array<'a> = "filter"
 @send external concat: (Js.Array.t<'a>, Js.Array.t<'a>) => Js.Array.t<'a> = "concat"
 @send external map: (array<'a>, 'a => 'b) => array<'b> = "map"
 
+@genType
 type action = Add(string) | Remove(int) | Edit(todo)
 
+@genType
 type state = {todos: array<todo>}
 
+@genType
 let reducer = (state, action) => {
   switch action {
   | Add(text) => {
@@ -29,9 +32,10 @@ let reducer = (state, action) => {
   }
 }
 
+@genType
 let initialState = {todos: [{id: 1, text: "jjj"}]}
 
-@react.component
+@genType @react.component
 let make = () => {
   let (state, dispatch) = React.useReducer(reducer, initialState)
 
@@ -42,7 +46,7 @@ let make = () => {
   let handleEditTodo = todo => todo->Edit->dispatch
 
   let todoList = state.todos->map(({id, text}) => {
-    <Todo
+    <Todo.Item
       handleRemoveTodo={handleRemoveTodo}
       key={Belt.Int.toString(id)}
       id={id}
@@ -62,6 +66,6 @@ let make = () => {
       )}>
       {React.array(todoList)}
     </div>
-    <TodoNew handleAddTodo={handleAddTodo} />
+    <Todo.New handleAddTodo={handleAddTodo} />
   </div>
 }

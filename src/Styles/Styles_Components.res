@@ -1,5 +1,5 @@
 open CssJs
-open StylesColors
+open Styles_Colors
 
 let buttonStyles = buttonType =>
   style(. [

@@ -5,7 +5,7 @@
   "sources": [
     {
       "dir": "src",
-      "subdirs": [{ "dir": "__tests__", "type": "dev" }]
+      "subdirs": true
     }
   ],
   "package-specs": [{ "module": "es6", "in-source": true }],
@@ -15,16 +15,20 @@
   "bs-dev-dependencies": [],
   "gentypeconfig": {
     "language": "typescript",
+    "module": "es6",
+    "importPath": "relative",
     "shims": {
       "Js": "Js",
       "React": "ReactShim",
       "ReactEvent": "ReactEvent",
+      "ReasonPervasives": "ReasonPervasives",
       "ReasonReact": "ReactShim"
     },
     "debug": {
-      "all": false,
-      "basic": false
-    }
+      "all": false
+    },
+    "exportInterfaces": false,
+    // "path": "../../_build/default/src/GenType.exe"
   },
   "refmt": 3
 }

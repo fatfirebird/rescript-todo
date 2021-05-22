@@ -1,4 +1,6 @@
-@react.component
+open Styles.SComponents
+
+@genType @react.component
 let make = (~handleAddTodo) => {
   let (todoText, setTodoText) = React.useState(_ => "")
 
@@ -12,7 +14,7 @@ let make = (~handleAddTodo) => {
     />
     {Js.String.length(todoText) > 0
       ? <button
-          className={Styles.buttonStyles("add")}
+          className={buttonStyles("add")}
           onClick={_ => {
             handleAddTodo(todoText)
             setTodoText(_ => "")
